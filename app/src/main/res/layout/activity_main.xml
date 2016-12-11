@@ -102,7 +102,7 @@
         app:layout_widthPercent="16%"
         app:layout_heightPercent="9%"
         app:layout_marginLeftPercent="5%"
-        android:background="@android:drawable/ic_lock_power_off"
+        android:background="@drawable/shutdown2"
         app:layout_marginTopPercent="85%"
         android:visibility="visible" />
 
