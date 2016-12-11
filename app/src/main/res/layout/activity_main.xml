@@ -104,7 +104,7 @@
         app:layout_marginLeftPercent="5%"
         android:background="@drawable/shutdown2"
         app:layout_marginTopPercent="85%"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/mute"
@@ -114,7 +114,7 @@
         app:layout_marginLeftPercent="79%"
         android:background="@drawable/appvolmute"
         app:layout_marginTopPercent="85%"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/voldown"
@@ -124,7 +124,7 @@
         app:layout_marginLeftPercent="79%"
         android:background="@drawable/appvoldown2"
         app:layout_marginTopPercent="75%"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/volup"
@@ -134,7 +134,7 @@
         app:layout_marginLeftPercent="79%"
         android:background="@drawable/volup2"
         app:layout_marginTopPercent="65%"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/inputtv"

@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     Button right;
     Button dpi;
     Button timeUntilMousePressed;
+    Button volup;
+    Button voldown;
+    Button volmute;
+    Button shutdown;
     EditText input;
     TcpConnection conToServer;
     ScrollView sv;
@@ -89,6 +93,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                     dpi.setText("dpi lv " + multiplier);
                     break;
+                case R.id.voldown:
+                    break;
+                case R.id.volup:
+                    break;
+                case R.id.mute:
+                    break;
+                case R.id.shutdown:
+                    break;
+                
 
 
             }
@@ -109,12 +122,20 @@ public class MainActivity extends AppCompatActivity {
         trackiv.setVisibility(View.VISIBLE);
         left.setVisibility(View.VISIBLE);
         right.setVisibility(View.VISIBLE);
+        volmute.setVisibility(View.VISIBLE);
+        volup.setVisibility(View.VISIBLE);
+        voldown.setVisibility(View.VISIBLE);
+        shutdown.setVisibility(View.VISIBLE);
         timeUntilMousePressed.setVisibility(View.VISIBLE);
         dpi.setVisibility(View.VISIBLE);
         timeUntilMousePressed.setOnClickListener(ocr);
         dpi.setOnClickListener(ocr);
         left.setOnClickListener(ocr);
         right.setOnClickListener(ocr);
+        voldown.setOnClickListener(ocr);
+        volup.setOnClickListener(ocr);
+        volmute.setOnClickListener(ocr);
+        shutdown.setOnClickListener(ocr);
 
         input.requestFocus();
 
@@ -195,6 +216,10 @@ public class MainActivity extends AppCompatActivity {
         left = (Button) findViewById(R.id.leftiv);
         right = (Button) findViewById(R.id.rightiv);
         input = (EditText) findViewById(R.id.inputtv);
+        voldown = (Button) findViewById(R.id.voldown);
+        volup = (Button) findViewById(R.id.volup);
+        volmute = (Button) findViewById(R.id.mute);
+        shutdown = (Button) findViewById(R.id.shutdown);
         sv = (ScrollView) findViewById(R.id.sv);
         dpi = (Button) findViewById(R.id.dpiv);
         timeUntilMousePressed = (Button) findViewById(R.id.timeuntilmousepressediv);
