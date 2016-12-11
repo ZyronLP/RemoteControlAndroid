@@ -215,14 +215,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 if (!(editable + "").equals(" ") && !(editable + "").isEmpty()) {
-
+                    System.out.println("k" + editable + "k");
                     if (editable.length() > 1) {
+                        System.out.println("k" + (editable + "").substring(1) + "k");
+                        System.out.println("k" + editable.toString() + "k");
+                        System.out.println("k" + editable + "k");
                         switch ((editable + "").substring(1)) {
                             case " ":
                                 sendMessageToServer("keyboard_space");
                                 break;
+                            /*case "ß":
+                                sendMessageToServer("keyboard_custom QUESTION");
+                                break;*/
                             case "?":
                                 sendMessageToServer("keyboard_custom QUESTION");
+                                System.out.println("?????????????????????");
                                 break;
                             case "!":
                                 sendMessageToServer("keyboard_custom EXCLAMATION");
@@ -315,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         }
-                    }else {
+                    } else {
                         sendMessageToServer("keyboard " + (editable + "").substring(1));
                     }
                     input.setText(" ");
