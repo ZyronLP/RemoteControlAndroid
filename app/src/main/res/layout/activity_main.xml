@@ -96,6 +96,46 @@
         app:layout_marginTopPercent="40.5%"
         android:visibility="invisible" />
 
+    <Button
+        android:id="@+id/shutdown"
+        android:text=""
+        app:layout_widthPercent="16%"
+        app:layout_heightPercent="9%"
+        app:layout_marginLeftPercent="5%"
+        android:background="@android:drawable/ic_lock_power_off"
+        app:layout_marginTopPercent="85%"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/mute"
+        android:text=""
+        app:layout_widthPercent="16%"
+        app:layout_heightPercent="9%"
+        app:layout_marginLeftPercent="79%"
+        android:background="@drawable/appvolmute"
+        app:layout_marginTopPercent="85%"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/voldown"
+        android:text=""
+        app:layout_widthPercent="16%"
+        app:layout_heightPercent="9%"
+        app:layout_marginLeftPercent="79%"
+        android:background="@drawable/appvoldown2"
+        app:layout_marginTopPercent="75%"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/volup"
+        android:text=""
+        app:layout_widthPercent="16%"
+        app:layout_heightPercent="9%"
+        app:layout_marginLeftPercent="79%"
+        android:background="@drawable/volup2"
+        app:layout_marginTopPercent="65%"
+        android:visibility="visible" />
+
     <EditText
         android:id="@+id/inputtv"
         app:layout_widthPercent="100%"
