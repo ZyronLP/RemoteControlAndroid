@@ -1,6 +1,5 @@
 package de.pro_open.remotecontrol;
 
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -227,20 +225,10 @@ public class MainActivity extends AppCompatActivity {
                                 sendMessageToServer("keyboard_space");
                                 break;
                             case "?":
-                                Context context2 = getApplicationContext();
-                                CharSequence text2 = "? is not possible";
-                                int duration2 = Toast.LENGTH_SHORT;
-
-                                Toast toast2 = Toast.makeText(context2, text2, duration2);
-                                toast2.show();
+                                sendMessageToServer("keyboard_custom QUESTION");
                                 break;
                             case "ß":
-                                Context context = getApplicationContext();
-                                CharSequence text = "ß is not possible";
-                                int duration = Toast.LENGTH_SHORT;
-
-                                Toast toast = Toast.makeText(context, text, duration);
-                                toast.show();
+                                sendMessageToServer("keyboard_custom SHARP");
                                 break;
                             case "!":
                                 sendMessageToServer("keyboard_custom EXCLAMATION");
