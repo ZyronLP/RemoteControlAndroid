@@ -224,12 +224,11 @@ public class MainActivity extends AppCompatActivity {
                             case " ":
                                 sendMessageToServer("keyboard_space");
                                 break;
-                            /*case "ß":
-                                sendMessageToServer("keyboard_custom QUESTION");
-                                break;*/
+                            case "ß":
+                                sendMessageToServer("keyboard_custom SHARP");
+                                break;
                             case "?":
                                 sendMessageToServer("keyboard_custom QUESTION");
-                                System.out.println("?????????????????????");
                                 break;
                             case "!":
                                 sendMessageToServer("keyboard_custom EXCLAMATION");
@@ -314,6 +313,9 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case "-":
                                 sendMessageToServer("keyboard_custom MINUS");
+                                break;
+                            case "#":
+                                sendMessageToServer("keyboard_custom HASHTAG");
                                 break;
                             default:
                                 sendMessageToServer("keyboard " + (editable + "").substring(1));
