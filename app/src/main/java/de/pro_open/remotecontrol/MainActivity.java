@@ -15,6 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.io.IOException;
 import java.net.InetAddress;
 
@@ -23,6 +27,7 @@ import JavaUtils.TCPManager.TcpConnection;
 import JavaUtils.UDPUtils.UDPBroadcast;
 
 public class MainActivity extends AppCompatActivity {
+    InterstitialAd mInterstitialAd;
     boolean inarea = true;
     Button trackiv;
     Button left;
@@ -101,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.shutdown:
                     break;
-                
+
 
 
             }
@@ -117,7 +122,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void clientConnection() {
         final RelativeLayout rl = (RelativeLayout) findViewById(R.id.activity_main);
-        rl.removeView(sv);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+        });
         input.setVisibility(View.VISIBLE);
         trackiv.setVisibility(View.VISIBLE);
         left.setVisibility(View.VISIBLE);
@@ -212,6 +227,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         trackiv = (Button) findViewById(R.id.trackiv);
         left = (Button) findViewById(R.id.leftiv);
         right = (Button) findViewById(R.id.rightiv);
@@ -423,5 +440,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    private void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
+    }
 }
