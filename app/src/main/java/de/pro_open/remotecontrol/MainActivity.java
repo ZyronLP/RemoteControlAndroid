@@ -110,11 +110,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-            if (view.getId() == R.id.leftiv) {
-                conToServer.writeLine("leftClick");
-            } else if (view.getId() == R.id.rightiv) {
-                conToServer.writeLine("rightClick");
-            }
         }
 
     };
@@ -122,17 +117,30 @@ public class MainActivity extends AppCompatActivity {
 
     private void clientConnection() {
         final RelativeLayout rl = (RelativeLayout) findViewById(R.id.activity_main);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mInterstitialAd = new InterstitialAd(getApplicationContext());
+                mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
-        mInterstitialAd.loadAd(adRequest);
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AdRequest adRequest = new AdRequest.Builder()
+                                .build();
+                        mInterstitialAd.loadAd(adRequest);
+                        mInterstitialAd.setAdListener(new AdListener() {
+                            public void onAdLoaded() {
+                                showInterstitial();
+                            }
+                        });
+                    }
+                });
             }
-        });
+
+        }).start();
+
+
         input.setVisibility(View.VISIBLE);
         trackiv.setVisibility(View.VISIBLE);
         left.setVisibility(View.VISIBLE);
