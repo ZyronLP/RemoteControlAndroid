@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
     Button right;
     Button dpi;
     Button timeUntilMousePressed;
-    Button volup;
-    Button voldown;
-    Button volmute;
     Button shutdown;
     EditText input;
     TcpConnection conToServer;
@@ -98,13 +95,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                     dpi.setText("dpi lv " + multiplier);
                     break;
-                case R.id.voldown:
+                /*case R.id.voldown:
                     break;
                 case R.id.volup:
                     break;
                 case R.id.mute:
-                    break;
+                    break;*/
                 case R.id.shutdown:
+                    conToServer.writeLine("shutdown");
                     break;
 
 
@@ -145,9 +143,9 @@ public class MainActivity extends AppCompatActivity {
         trackiv.setVisibility(View.VISIBLE);
         left.setVisibility(View.VISIBLE);
         right.setVisibility(View.VISIBLE);
-        volmute.setVisibility(View.VISIBLE);
+        /*volmute.setVisibility(View.VISIBLE);
         volup.setVisibility(View.VISIBLE);
-        voldown.setVisibility(View.VISIBLE);
+        voldown.setVisibility(View.VISIBLE);*/
         shutdown.setVisibility(View.VISIBLE);
         timeUntilMousePressed.setVisibility(View.VISIBLE);
         dpi.setVisibility(View.VISIBLE);
@@ -155,9 +153,9 @@ public class MainActivity extends AppCompatActivity {
         dpi.setOnClickListener(ocr);
         left.setOnClickListener(ocr);
         right.setOnClickListener(ocr);
-        voldown.setOnClickListener(ocr);
+        /*voldown.setOnClickListener(ocr);
         volup.setOnClickListener(ocr);
-        volmute.setOnClickListener(ocr);
+        volmute.setOnClickListener(ocr);*/
         shutdown.setOnClickListener(ocr);
 
         input.requestFocus();
@@ -241,9 +239,9 @@ public class MainActivity extends AppCompatActivity {
         left = (Button) findViewById(R.id.leftiv);
         right = (Button) findViewById(R.id.rightiv);
         input = (EditText) findViewById(R.id.inputtv);
-        voldown = (Button) findViewById(R.id.voldown);
+        /*voldown = (Button) findViewById(R.id.voldown);
         volup = (Button) findViewById(R.id.volup);
-        volmute = (Button) findViewById(R.id.mute);
+        volmute = (Button) findViewById(R.id.mute);*/
         shutdown = (Button) findViewById(R.id.shutdown);
         sv = (ScrollView) findViewById(R.id.sv);
         dpi = (Button) findViewById(R.id.dpiv);
@@ -440,7 +438,19 @@ public class MainActivity extends AppCompatActivity {
         }
         if (server_on == false) {
             TextView tv = (TextView) findViewById(R.id.noserveronlinetv);
-            tv.setText("No Server found!\nDownload the server software for Linux, Windows or Mac on www.test.de");
+            tv.setText("No Server found!\n1. Download the server file for your PC\n" +
+                    "    (Windows, Linux, Mac) from \n" +
+                    "    http://bit.do/rc-server\n" +
+                    "\n" +
+                    "2. Download Java from www.java.com\n" +
+                    "\n" +
+                    "3. Connect your Computer and \n" +
+                    "    Smartphone with the same network\n" +
+                    "\n" +
+                    "4. Open RemoteControlServer.jar\n" +
+                    "\n" +
+                    "5. Run the App and connect with your\n" +
+                    "    PC");
             tv.setVisibility(View.VISIBLE);
         } else {
 

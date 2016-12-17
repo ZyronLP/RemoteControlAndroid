@@ -34,7 +34,8 @@
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_marginLeftPercent="5%"
-        app:layout_marginTopPercent="5%" />
+        app:layout_marginTopPercent="5%"
+        android:editable="true" />
 
     <ProgressBar
 
@@ -104,36 +105,6 @@
         app:layout_marginLeftPercent="5%"
         android:background="@drawable/shutdown2"
         app:layout_marginTopPercent="85%"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/mute"
-        android:text=""
-        app:layout_widthPercent="16%"
-        app:layout_heightPercent="9%"
-        app:layout_marginLeftPercent="79%"
-        android:background="@drawable/appvolmute"
-        app:layout_marginTopPercent="85%"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/voldown"
-        android:text=""
-        app:layout_widthPercent="16%"
-        app:layout_heightPercent="9%"
-        app:layout_marginLeftPercent="79%"
-        android:background="@drawable/appvoldown2"
-        app:layout_marginTopPercent="75%"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/volup"
-        android:text=""
-        app:layout_widthPercent="16%"
-        app:layout_heightPercent="9%"
-        app:layout_marginLeftPercent="79%"
-        android:background="@drawable/volup2"
-        app:layout_marginTopPercent="65%"
         android:visibility="invisible" />
 
     <EditText
