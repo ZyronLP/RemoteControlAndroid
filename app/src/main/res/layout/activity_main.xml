@@ -120,5 +120,3 @@
         android:inputType="textFilter|textMultiLine" />
 
 </android.support.percent.PercentRelativeLayout>
-
-

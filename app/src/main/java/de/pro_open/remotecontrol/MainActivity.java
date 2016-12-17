@@ -115,11 +115,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void clientConnection() {
         final RelativeLayout rl = (RelativeLayout) findViewById(R.id.activity_main);
+        rl.removeView(sv);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 mInterstitialAd = new InterstitialAd(getApplicationContext());
-                mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+                mInterstitialAd.setAdUnitId("");
 
                 runOnUiThread(new Runnable() {
                     @Override
@@ -199,8 +200,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     conToServer.writeLine("mouse " + ((int) (motionEvent.getX() - prevX)) * multiplier + " " + ((int) (motionEvent.getY() - prevY)) * multiplier);
 
-                        prevX = motionEvent.getX();
-                        prevY = motionEvent.getY();
+                    prevX = motionEvent.getX();
+                    prevY = motionEvent.getY();
                 }
                 if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     te = System.currentTimeMillis();
