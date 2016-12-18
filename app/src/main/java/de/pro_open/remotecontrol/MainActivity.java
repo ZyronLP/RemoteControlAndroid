@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(final View view) {
             switch (view.getId()) {
                 case R.id.leftiv:
-                    conToServer.writeLine("leftClick");
+                    sendMessageToServer("leftClick");
                     break;
                 case R.id.rightiv:
-                    conToServer.writeLine("rightClick");
+                    sendMessageToServer("rightClick");
                     break;
                 case R.id.timeuntilmousepressediv:
                     if (ms < 1000) {
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.mute:
                     break;*/
                 case R.id.shutdown:
-                    conToServer.writeLine("shutdown");
+                    sendMessageToServer("shutdown");
                     break;
 
 
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(motionEvent.getX());
                         System.out.println(preX);*/
                         mouseIsPressed = true;
-                        conToServer.writeLine("mousePressed");
+                        sendMessageToServer("mousePressed");
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                             trackiv.setBackground(getResources().getDrawable(R.drawable.backgroundtrackpadmousepressed));
                         }
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                     if (mouseIsPressed == false && ((motionEvent.getX() - preX) > 2 || (motionEvent.getY() - preY) > 2)) {
                         inarea = false;
                     }
-                    conToServer.writeLine("mouse " + ((int) (motionEvent.getX() - prevX)) * multiplier + " " + ((int) (motionEvent.getY() - prevY)) * multiplier);
+                    sendMessageToServer("mouse " + ((int) (motionEvent.getX() - prevX)) * multiplier + " " + ((int) (motionEvent.getY() - prevY)) * multiplier);
 
                     prevX = motionEvent.getX();
                     prevY = motionEvent.getY();
@@ -206,13 +206,13 @@ public class MainActivity extends AppCompatActivity {
                 if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     te = System.currentTimeMillis();
                     if ((te - ts) < 150 && (int) (motionEvent.getX() - preX) < 4 && (int) (motionEvent.getY() - preY) < 4 && mouseIsPressed == false) {
-                        conToServer.writeLine("leftClick");
+                        sendMessageToServer("leftClick");
                     } else if (mouseIsPressed == true) {
                         mouseIsPressed = false;
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                             trackiv.setBackground(getResources().getDrawable(R.drawable.backgroundtrackpad));
                         }
-                        conToServer.writeLine("mouseReleased");
+                        sendMessageToServer("mouseReleased");
                     }
                 }
                 return true;
