@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 mInterstitialAd = new InterstitialAd(getApplicationContext());
-                mInterstitialAd.setAdUnitId("");
+                mInterstitialAd.setAdUnitId("t");
 
                 runOnUiThread(new Runnable() {
                     @Override
